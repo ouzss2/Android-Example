@@ -30,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
     ListView lst ;
     ImageButton add;
     AutoCompleteTextView autoCompleteTextView;
-
+    ActivityResultLauncher launcher;
+    List<String> names;
+    ArrayList<String> notenew;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,16 +41,39 @@ public class MainActivity extends AppCompatActivity {
         lst = findViewById(R.id.studentList);
         add = findViewById(R.id.addstudent);
         autoCompleteTextView = findViewById(R.id.autotext);
+    notenew = new ArrayList<>();
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),result ->{
+            if (result.getResultCode() == RESULT_OK && result.getData() != null)
+            {
+              Intent data = result.getData();
+              names.add(data.getStringExtra("name"));
+              notenew.add(data.getStringExtra("n1"));
+              notenew.add(data.getStringExtra("n2"));
+              notenew.add(data.getStringExtra("n3"));
+              notenew.add(data.getStringExtra("n4"));
+              notenew.add(data.getStringExtra("n5"));
+              notenew.add(data.getStringExtra("n"));
+                ArrayAdapter adapter = new ArrayAdapter(this,
+                        androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                        names);
+                autoCompleteTextView.setAdapter(adapter);
+
+            }
+        });
+
+
+add.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent i = new Intent(MainActivity.this, NoteActivity.class);
+        launcher.launch(i);
+    }
+});
 
 
 
 
-
-
-
-
-
-        List<String> names = new ArrayList<>();
+         names = new ArrayList<>();
         names.add("Sarra");
         names.add("Sami");
         names.add("Ali");
@@ -83,9 +108,11 @@ public class MainActivity extends AppCompatActivity {
                 }else if (selectedName.equals("Sami")){
                     adapter1 = new ListAdapter(MainActivity.this, noteSami);
 
-                }else {    adapter1 = new ListAdapter(MainActivity.this, noteAliAA);
+                }else if (selectedName.equals("SaAlirra")){                               adapter1 = new ListAdapter(MainActivity.this, noteAliAA);
 
 
+                }else {
+                    adapter1 = new ListAdapter(MainActivity.this, notenew);
                 }
 
                 lst.setAdapter(adapter1);

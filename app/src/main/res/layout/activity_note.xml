@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoteActivity">
+
+    <EditText
+        android:textAlignment="center"
+        android:id="@+id/stdname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Student Name "
+        android:layout_marginHorizontal="20dp"/>
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:padding="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/bigdat"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="Big data "
+            android:layout_marginHorizontal="20dp"/>
+        <EditText
+            android:id="@+id/android"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="Android "
+            android:layout_marginHorizontal="20dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:padding="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/Aws"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="Aws "
+            android:layout_marginHorizontal="20dp"/>
+        <EditText
+            android:id="@+id/ios"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="iOS "
+            android:layout_marginHorizontal="20dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:padding="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/uiux"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="UI/UX "
+            android:layout_marginHorizontal="20dp"/>
+        <EditText
+            android:id="@+id/java"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="Java "
+            android:layout_marginHorizontal="20dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Student data"
+        android:layout_margin="50dp"/>
+
+</LinearLayout>
